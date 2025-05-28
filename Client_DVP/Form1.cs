@@ -34,7 +34,7 @@ namespace Client_DVP
         {
             if (CLP.Connected)
             {
-                int Fonte = Convert.ToInt32(CLP.ReadHoldingRegisters(200, 1));
+                int Fonte = Convert.ToInt32(CLP.ReadHoldingRegisters(200, 1)[0]);
                 if (Fonte == 0)
                 {
                     lb_controle.Text = "Controle: Local";
@@ -51,7 +51,7 @@ namespace Client_DVP
         {
             if (CLP.Connected)
             {
-                int Habilitado = Convert.ToInt32(CLP.ReadHoldingRegisters(201, 1));
+                int Habilitado = Convert.ToInt32(CLP.ReadHoldingRegisters(201, 1)[0]);
                 if (Habilitado == 0)
                 {
                     lb_enable.Text = "Desabilitado";
@@ -67,7 +67,7 @@ namespace Client_DVP
         {
             if (CLP.Connected)
             {
-                int Alarme = Convert.ToInt32(CLP.ReadHoldingRegisters(203, 1));
+                int Alarme = Convert.ToInt32(CLP.ReadHoldingRegisters(203, 1)[0]);
                 if (Alarme == 0)
                 {
                     lb_alarme.Text = "Sem alarme";
@@ -111,7 +111,7 @@ namespace Client_DVP
         {
             if (CLP.Connected)
             {
-                lb_set_point.Text = "Set point: " + CLP.ReadHoldingRegisters(206, 1) + " °C";
+                lb_set_point.Text = "Set point: " + CLP.ReadHoldingRegisters(206, 1)[0] + " °C";
             }
         }
 
@@ -119,7 +119,7 @@ namespace Client_DVP
         {
             if (CLP.Connected)
             {
-                lb_capacity.Text = "Capacidade: " + CLP.ReadHoldingRegisters(207, 1) + " %";
+                lb_capacity.Text = "Capacidade: " + CLP.ReadHoldingRegisters(207, 1)[0] + " %";
             }
         }
 
@@ -159,7 +159,7 @@ namespace Client_DVP
         {
             if (CLP.Connected)
             {
-                lb_temp.Text = "Temperatura: " + CLP.ReadHoldingRegisters(209, 1) + " °C";
+                lb_temp.Text = "Temperatura: " + CLP.ReadHoldingRegisters(209, 1)[0] + " °C";
             }
         }
 
@@ -167,7 +167,7 @@ namespace Client_DVP
         {
             if (CLP.Connected)
             {
-                lb_data.Text = Convert.ToString(CLP.ReadHoldingRegisters(212, 1));
+                lb_data.Text = Convert.ToString(CLP.ReadHoldingRegisters(212, 1)[0]);
             }
         }
 
@@ -175,7 +175,7 @@ namespace Client_DVP
         {
             if (CLP.Connected)
             {
-                lb_mes.Text = Convert.ToString(CLP.ReadHoldingRegisters(211, 1));
+                lb_mes.Text = Convert.ToString(CLP.ReadHoldingRegisters(211, 1)[0]);
             }
         }
 
@@ -183,7 +183,7 @@ namespace Client_DVP
         {
             if (CLP.Connected)
             {
-                lb_ano.Text = Convert.ToString(CLP.ReadHoldingRegisters(210, 1));
+                lb_ano.Text = Convert.ToString(CLP.ReadHoldingRegisters(210, 1)[0]);
             }
         }
 
@@ -191,7 +191,7 @@ namespace Client_DVP
         {
             if (CLP.Connected)
             {
-                lb_hora.Text = Convert.ToString(CLP.ReadHoldingRegisters(214, 1));
+                lb_hora.Text = Convert.ToString(CLP.ReadHoldingRegisters(214, 1)[0]);
             }
         }
 
@@ -199,7 +199,7 @@ namespace Client_DVP
         {
             if (CLP.Connected)
             {
-                lb_minuto.Text = Convert.ToString(CLP.ReadHoldingRegisters(215, 1));
+                lb_minuto.Text = Convert.ToString(CLP.ReadHoldingRegisters(215, 1)[0]);
             }
         }
     }
