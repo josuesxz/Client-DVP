@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "MhUJhL2Vd4s=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Iatecam\\Desktop\\Guithub\\Comunica-Delta\\Client-DVP\\Client_DVP\\Client_DVP.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Iatecam\\.nuget\\packages\\easymodbustcp.netcore\\1.0.0\\easymodbustcp.netcore.1.0.0.nupkg.sha512",
+    "C:\\Users\\Iatecam\\.nuget\\packages\\runtime.linux-arm.runtime.native.system.io.ports\\6.0.0\\runtime.linux-arm.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\Iatecam\\.nuget\\packages\\runtime.linux-arm64.runtime.native.system.io.ports\\6.0.0\\runtime.linux-arm64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\Iatecam\\.nuget\\packages\\runtime.linux-x64.runtime.native.system.io.ports\\6.0.0\\runtime.linux-x64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\Iatecam\\.nuget\\packages\\runtime.native.system.io.ports\\6.0.0\\runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\Iatecam\\.nuget\\packages\\runtime.osx-arm64.runtime.native.system.io.ports\\6.0.0\\runtime.osx-arm64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\Iatecam\\.nuget\\packages\\runtime.osx-x64.runtime.native.system.io.ports\\6.0.0\\runtime.osx-x64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\Iatecam\\.nuget\\packages\\system.io.ports\\6.0.0\\system.io.ports.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
