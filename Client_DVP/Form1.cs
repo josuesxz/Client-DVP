@@ -23,5 +23,10 @@ namespace Client_DVP
             }
 
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
