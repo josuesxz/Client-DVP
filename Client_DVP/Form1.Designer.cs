@@ -55,13 +55,14 @@
             gp_escrita = new GroupBox();
             btn_rst = new Button();
             btn_enable = new Button();
+            btn_update = new Button();
             gb_Leitura.SuspendLayout();
             gp_escrita.SuspendLayout();
             SuspendLayout();
             // 
             // btn_conect
             // 
-            btn_conect.Location = new Point(161, 399);
+            btn_conect.Location = new Point(85, 399);
             btn_conect.Name = "btn_conect";
             btn_conect.Size = new Size(75, 23);
             btn_conect.TabIndex = 0;
@@ -72,7 +73,7 @@
             // lb_info_conect
             // 
             lb_info_conect.AutoSize = true;
-            lb_info_conect.Location = new Point(161, 425);
+            lb_info_conect.Location = new Point(147, 425);
             lb_info_conect.Name = "lb_info_conect";
             lb_info_conect.Size = new Size(82, 15);
             lb_info_conect.TabIndex = 1;
@@ -87,7 +88,6 @@
             lb_data.Size = new Size(19, 15);
             lb_data.TabIndex = 2;
             lb_data.Text = "00";
-            lb_data.Click += lb_data_Click;
             // 
             // lb_mes
             // 
@@ -98,7 +98,6 @@
             lb_mes.Size = new Size(19, 15);
             lb_mes.TabIndex = 3;
             lb_mes.Text = "00";
-            lb_mes.Click += lb_mes_Click;
             // 
             // lb_ano
             // 
@@ -109,7 +108,6 @@
             lb_ano.Size = new Size(31, 15);
             lb_ano.TabIndex = 4;
             lb_ano.Text = "0000";
-            lb_ano.Click += lb_ano_Click;
             // 
             // lb_minuto
             // 
@@ -120,7 +118,6 @@
             lb_minuto.Size = new Size(19, 15);
             lb_minuto.TabIndex = 6;
             lb_minuto.Text = "00";
-            lb_minuto.Click += lb_minuto_Click;
             // 
             // lb_hora
             // 
@@ -131,7 +128,6 @@
             lb_hora.Size = new Size(19, 15);
             lb_hora.TabIndex = 5;
             lb_hora.Text = "00";
-            lb_hora.Click += lb_hora_Click;
             // 
             // label1
             // 
@@ -189,7 +185,6 @@
             gb_Leitura.TabIndex = 11;
             gb_Leitura.TabStop = false;
             gb_Leitura.Text = "Leitura";
-            gb_Leitura.Enter += groupBox1_Enter;
             // 
             // lb_stts_ckt2
             // 
@@ -235,7 +230,6 @@
             lb_temp.Size = new Size(80, 15);
             lb_temp.TabIndex = 7;
             lb_temp.Text = "Temperatura: ";
-            lb_temp.Click += lb_temp_Click;
             // 
             // lb_status
             // 
@@ -245,7 +239,6 @@
             lb_status.Size = new Size(45, 15);
             lb_status.TabIndex = 6;
             lb_status.Text = "Status: ";
-            lb_status.Click += lb_status_Click;
             // 
             // lb_capacity
             // 
@@ -255,7 +248,6 @@
             lb_capacity.Size = new Size(72, 15);
             lb_capacity.TabIndex = 5;
             lb_capacity.Text = "Capacidade:";
-            lb_capacity.Click += lb_capacity_Click;
             // 
             // lb_set_point
             // 
@@ -265,7 +257,6 @@
             lb_set_point.Size = new Size(60, 15);
             lb_set_point.TabIndex = 4;
             lb_set_point.Text = "Set point: ";
-            lb_set_point.Click += lb_set_point_Click;
             // 
             // lb_modo
             // 
@@ -275,7 +266,6 @@
             lb_modo.Size = new Size(45, 15);
             lb_modo.TabIndex = 3;
             lb_modo.Text = "Modo: ";
-            lb_modo.Click += lb_modo_Click;
             // 
             // lb_alarme
             // 
@@ -285,7 +275,6 @@
             lb_alarme.Size = new Size(45, 15);
             lb_alarme.TabIndex = 2;
             lb_alarme.Text = "Alarme";
-            lb_alarme.Click += lb_alarme_Click;
             // 
             // lb_enable
             // 
@@ -295,7 +284,6 @@
             lb_enable.Size = new Size(62, 15);
             lb_enable.TabIndex = 1;
             lb_enable.Text = "Habilitado";
-            lb_enable.Click += lb_enable_Click;
             // 
             // lb_controle
             // 
@@ -305,7 +293,6 @@
             lb_controle.Size = new Size(59, 15);
             lb_controle.TabIndex = 0;
             lb_controle.Text = "Controle: ";
-            lb_controle.Click += lb_controle_Click;
             // 
             // gp_escrita
             // 
@@ -336,12 +323,23 @@
             btn_enable.Text = "Acionar ";
             btn_enable.UseVisualStyleBackColor = true;
             // 
+            // btn_update
+            // 
+            btn_update.Location = new Point(213, 399);
+            btn_update.Name = "btn_update";
+            btn_update.Size = new Size(75, 23);
+            btn_update.TabIndex = 13;
+            btn_update.Text = "Atualizar";
+            btn_update.UseVisualStyleBackColor = true;
+            btn_update.Click += btn_update_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonShadow;
             ClientSize = new Size(392, 450);
+            Controls.Add(btn_update);
             Controls.Add(gp_escrita);
             Controls.Add(gb_Leitura);
             Controls.Add(lb_dia);
@@ -394,5 +392,6 @@
         private Label lb_set_point;
         private Label lb_stts_ckt2;
         private Label lb_cap_ckt2;
+        private Button btn_update;
     }
 }
