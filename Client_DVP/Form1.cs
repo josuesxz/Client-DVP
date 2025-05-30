@@ -10,14 +10,14 @@ namespace Client_DVP
         }
 
         ModbusClient CLP = new ModbusClient();
-        string Aux_status = "", Aux_modo = "", Aux_dia = "";
-        int controle, habilitado, alarme, modo, set_ptn, cap, stts, temp, data, dia, mes, ano, hora, minuto;
+        string Aux_status = "", Aux_modo = "", Aux_dia = "", Aux_stts_ckt1 = "", Aux_stts_ckt2 = "";
+        int controle, habilitado, alarme, modo, set_ptn, cap, stts, temp, data, dia, mes, ano, hora, minuto, cap_ckt1, stts_ckt1, cap_ckt2, stts_ckt2;
 
         private void btn_conect_Click(object sender, EventArgs e)
         {
             try
             {
-                CLP.Connect("10.57.100.190", 502);
+                CLP.Connect("10.57.76.20", 502);
                 lb_info_conect.Text = "CLP conectado";
             }
             catch
@@ -31,7 +31,7 @@ namespace Client_DVP
         {
             if (CLP.Connected)
             {
-                int[] leitura = CLP.ReadHoldingRegisters(200, 20);
+                int[] leitura = CLP.ReadHoldingRegisters(200, 25);
                 controle = Convert.ToInt32(leitura[0]);
                 habilitado = Convert.ToInt32(leitura[1]);
                 alarme = Convert.ToInt32(leitura[2]);
@@ -46,22 +46,29 @@ namespace Client_DVP
                 dia = Convert.ToInt32(leitura[13]);
                 hora = Convert.ToInt32(leitura[14]);
                 minuto = Convert.ToInt32(leitura[15]);
+                cap_ckt1 = Convert.ToInt32(leitura[19]);
+                stts_ckt1 = Convert.ToInt32(leitura[20]);
+                cap_ckt2 = Convert.ToInt32(leitura[17]);
+                stts_ckt2 = Convert.ToInt32(leitura[18]);
+
 
                 lb_dia.Text = "Dia: " + Aux_dia;
-                lb_temp.Text = "Temperatura: " + temp + " °C";
+                lb_temp.Text = "Temperatura: " + temp*0.1 + " °C";
                 lb_data.Text = data + " / " + mes + " / " + ano;
                 lb_hora.Text = hora + " : " + minuto;
-                lb_capacity.Text = "Capacidade: " + cap + " %";
-                lb_set_point.Text = "Set point: " + set_ptn + " °C";
+                lb_capacity.Text = "Capacidade: " + cap*0.1 + " %";
+                lb_set_point.Text = "Set point: " + set_ptn* 0.1 + " °C";
                 lb_status.Text = "Status: " + Aux_status;
                 lb_modo.Text = "Modo " + Aux_modo;
+                lb_cap_ck1.Text = "Capacidade do circuito 1: " + cap_ckt1 * 0.1 + " %";
+                lb_cap_ckt2.Text = "Capacidade do circuito 2: " + cap_ckt2 * 0.1 + " %";
+                lb_stts_ckt1.Text = "Estatus do circuito 1: " + Aux_stts_ckt1;
+                lb_stts_ckt2.Text = "Estatus do circuito 2: " + Aux_stts_ckt2;
             }
             else
             {
                 MessageBox.Show("Conecte ao CLP!!");
             }
-            
-
             
             switch (stts)
             {
@@ -86,7 +93,7 @@ namespace Client_DVP
 
             }
 
-            if (controle == 1)
+            if (controle == 0)
             {
                 lb_controle.Text = "Controle: Remoto";
             }
@@ -159,7 +166,32 @@ namespace Client_DVP
                     Aux_dia = "Sem informação";
                     break;
             }
-        }
+            switch (stts_ckt1)
+            {
+                case 0:
+                    Aux_stts_ckt1 = "Stop";
+                    break;
+                case 1:
+                    Aux_stts_ckt1 = "Run";
+                    break;
+                default:
+                    Aux_stts_ckt1 = "Sem informação";
+                    break;
+                }
+            switch (stts_ckt2)
+            {
+                case 0:
+                    Aux_stts_ckt2 = "Stop";
+                    break;
+                case 1:
+                    Aux_stts_ckt2 = "Run";
+                    break;
+                default:
+                    Aux_stts_ckt2 = "Sem informação";
+                    break;
+                }
+
+            }
 
         private void btn_disconnect_Click(object sender, EventArgs e)
         {

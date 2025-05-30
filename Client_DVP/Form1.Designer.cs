@@ -298,6 +298,7 @@
             Controls.Add(btn_conect);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Console Chiller - Daikin";
             gb_Leitura.ResumeLayout(false);
             gb_Leitura.PerformLayout();
