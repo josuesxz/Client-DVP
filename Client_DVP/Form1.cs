@@ -10,13 +10,14 @@ namespace Client_DVP
         }
 
         ModbusClient CLP = new ModbusClient();
+        string Aux_status = "", Aux_modo = "", Aux_dia = "";
         int controle, habilitado, alarme, modo, set_ptn, cap, stts, temp, data, dia, mes, ano, hora, minuto;
 
         private void btn_conect_Click(object sender, EventArgs e)
         {
             try
             {
-                CLP.Connect("192.168.30.5", 502);
+                CLP.Connect("10.57.100.190", 502);
                 lb_info_conect.Text = "CLP conectado";
             }
             catch
@@ -30,7 +31,7 @@ namespace Client_DVP
         {
             if (CLP.Connected)
             {
-                int[] leitura = CLP.ReadHoldingRegisters(200, 12);
+                int[] leitura = CLP.ReadHoldingRegisters(200, 20);
                 controle = Convert.ToInt32(leitura[0]);
                 habilitado = Convert.ToInt32(leitura[1]);
                 alarme = Convert.ToInt32(leitura[2]);
@@ -45,14 +46,23 @@ namespace Client_DVP
                 dia = Convert.ToInt32(leitura[13]);
                 hora = Convert.ToInt32(leitura[14]);
                 minuto = Convert.ToInt32(leitura[15]);
-            }
-            lb_temp.Text = "Temperatura: " + temp + " °C";
-            lb_data.Text = data + " / " + mes + " / " + ano;
-            lb_hora.Text = hora + " : " + minuto;
-            lb_capacity.Text = "Capacidade: " + cap + " %";
-            lb_set_point.Text = "Set point: " + set_ptn + " °C";
 
-            string Aux_status;
+                lb_dia.Text = "Dia: " + Aux_dia;
+                lb_temp.Text = "Temperatura: " + temp + " °C";
+                lb_data.Text = data + " / " + mes + " / " + ano;
+                lb_hora.Text = hora + " : " + minuto;
+                lb_capacity.Text = "Capacidade: " + cap + " %";
+                lb_set_point.Text = "Set point: " + set_ptn + " °C";
+                lb_status.Text = "Status: " + Aux_status;
+                lb_modo.Text = "Modo " + Aux_modo;
+            }
+            else
+            {
+                MessageBox.Show("Conecte ao CLP!!");
+            }
+            
+
+            
             switch (stts)
             {
                 case 0:
@@ -76,8 +86,6 @@ namespace Client_DVP
 
             }
 
-            lb_status.Text = "Status: " + Aux_status;
-
             if (controle == 1)
             {
                 lb_controle.Text = "Controle: Remoto";
@@ -87,7 +95,6 @@ namespace Client_DVP
                 lb_controle.Text = "Controle: Local";
             }
 
-            string Aux_modo;
             switch (modo)
             {
                 case 0:
@@ -107,8 +114,6 @@ namespace Client_DVP
                     break;
             }
 
-            lb_modo.Text = "Modo " + Aux_modo;
-
             if (alarme == 0)
             {
                 lb_alarme.Text = "Sem alarme";
@@ -127,8 +132,8 @@ namespace Client_DVP
                 lb_enable.Text = "Habilitado";
             }
 
-            string Aux_dia;
-            switch (dia) {
+            switch (dia)
+            {
                 case 0:
                     Aux_dia = "Segunda";
                     break;
@@ -154,7 +159,14 @@ namespace Client_DVP
                     Aux_dia = "Sem informação";
                     break;
             }
-            lb_dia.Text = "Dia: " + Aux_dia;
+        }
+
+        private void btn_disconnect_Click(object sender, EventArgs e)
+        {
+            if(CLP.Connected){ 
+            CLP.Disconnect();
+            lb_info_conect.Text = "Desconectado";
+            }
         }
     }
 }

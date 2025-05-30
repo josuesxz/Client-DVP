@@ -50,13 +50,14 @@
             btn_rst = new Button();
             btn_enable = new Button();
             btn_update = new Button();
+            btn_disconnect = new Button();
             gb_Leitura.SuspendLayout();
             gp_escrita.SuspendLayout();
             SuspendLayout();
             // 
             // btn_conect
             // 
-            btn_conect.Location = new Point(85, 399);
+            btn_conect.Location = new Point(34, 397);
             btn_conect.Name = "btn_conect";
             btn_conect.Size = new Size(75, 23);
             btn_conect.TabIndex = 0;
@@ -67,7 +68,7 @@
             // lb_info_conect
             // 
             lb_info_conect.AutoSize = true;
-            lb_info_conect.Location = new Point(147, 425);
+            lb_info_conect.Location = new Point(145, 428);
             lb_info_conect.Name = "lb_info_conect";
             lb_info_conect.Size = new Size(82, 15);
             lb_info_conect.TabIndex = 1;
@@ -262,7 +263,7 @@
             // 
             // btn_update
             // 
-            btn_update.Location = new Point(213, 399);
+            btn_update.Location = new Point(271, 398);
             btn_update.Name = "btn_update";
             btn_update.Size = new Size(75, 23);
             btn_update.TabIndex = 13;
@@ -270,12 +271,23 @@
             btn_update.UseVisualStyleBackColor = true;
             btn_update.Click += btn_update_Click;
             // 
+            // btn_disconnect
+            // 
+            btn_disconnect.Location = new Point(147, 399);
+            btn_disconnect.Name = "btn_disconnect";
+            btn_disconnect.Size = new Size(80, 23);
+            btn_disconnect.TabIndex = 14;
+            btn_disconnect.Text = "Desconectar";
+            btn_disconnect.UseVisualStyleBackColor = true;
+            btn_disconnect.Click += btn_disconnect_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonShadow;
             ClientSize = new Size(392, 450);
+            Controls.Add(btn_disconnect);
             Controls.Add(btn_update);
             Controls.Add(gp_escrita);
             Controls.Add(gb_Leitura);
@@ -318,5 +330,6 @@
         private Label lb_stts_ckt2;
         private Label lb_cap_ckt2;
         private Button btn_update;
+        private Button btn_disconnect;
     }
 }
